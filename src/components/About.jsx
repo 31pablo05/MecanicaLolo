@@ -36,14 +36,13 @@ const About = () => (
           </div>
         </div>
         <div className="relative">
-          <img
-            src="/assets/equipo-mecanica-lolo.jpg"
-            alt="Equipo de Mecánica Lolo trabajando"
-            className="rounded-2xl shadow-2xl w-full"
-            onError={(e) => {
-              e.target.src = "https://images.unsplash.com/photo-1609757476919-3b4ebaa6b0c7?auto=format&fit=crop&w=1926&q=80";
-            }}
-          />
+          <div className="w-full h-96 bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl shadow-2xl flex items-center justify-center">
+            <div className="text-center text-slate-600">
+              <Shield className="h-20 w-20 mx-auto mb-4 text-yellow-400" />
+              <h3 className="text-2xl font-bold mb-2">Nuestro Equipo</h3>
+              <p className="text-lg">Profesionales experimentados</p>
+            </div>
+          </div>
           <div className="absolute -bottom-6 -right-6 bg-yellow-400 p-6 rounded-xl shadow-lg">
             <div className="text-center">
               <Star className="h-8 w-8 text-slate-900 mx-auto mb-2" />

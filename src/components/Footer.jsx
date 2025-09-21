@@ -7,22 +7,8 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <div className="flex items-center space-x-3 mb-4">
-            <div className="h-8 w-8">
-              <img 
-                src="/assets/logo-mecanica-lolo-white.png" 
-                alt="Logo Mecánica Lolo" 
-                className="h-full w-full object-contain"
-                onError={(e) => {
-                  e.target.src = "/assets/logo-mecanica-lolo.png";
-                  e.target.onerror = (e2) => {
-                    e2.target.style.display = 'none';
-                    e2.target.nextSibling.style.display = 'flex';
-                  };
-                }}
-              />
-              <div className="bg-yellow-400 p-2 rounded-lg hidden">
-                <Wrench className="h-4 w-4 text-slate-900" />
-              </div>
+            <div className="bg-yellow-400 p-2 rounded-lg">
+              <Wrench className="h-6 w-6 text-slate-900" />
             </div>
             <div>
               <h3 className="text-xl font-bold">Mecánica Lolo</h3>
