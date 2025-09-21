@@ -6,7 +6,8 @@ const images = [
   { src: '/imagenes de taller/1.png', title: 'Diagnóstico Avanzado', subtitle: 'Tecnología de última generación' },
   { src: '/imagenes de taller/2.png', title: 'Reparaciones Precisas', subtitle: 'Trabajo especializado' },
   { src: '/imagenes de taller/3.png', title: 'Equipo Profesional', subtitle: 'Experiencia garantizada' },
-  { src: '/imagenes de taller/4.png', title: 'Resultados Garantizados', subtitle: 'Calidad certificada' }
+  { src: '/imagenes de taller/4.png', title: 'Resultados Garantizados', subtitle: 'Calidad certificada' },
+  { src: '/images lolowebp/mec7.webp', title: 'Atención Personalizada', subtitle: 'Servicio al cliente excepcional' }
 ];
 
 const Hero = () => {
@@ -46,9 +47,9 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen overflow-hidden bg-slate-900">
+  <section id="inicio" className="relative min-h-screen overflow-hidden bg-black">
       {/* Carrusel de imágenes */}
-      <div className="absolute inset-0 w-full h-full z-0">
+  <div className="absolute inset-0 w-full h-full z-0">
         {images.map((image, idx) => (
           <img
             key={idx}
@@ -73,13 +74,16 @@ const Hero = () => {
           />
         ))}
         {/* Overlay gradiente */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-slate-900/60 pointer-events-none"></div>
+        {/* Overlay gradiente negro sutil */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'linear-gradient(90deg, #00000099 0%, #00000040 80%, #00000099 100%)'
+        }}></div>
         {/* Efecto de partículas animadas */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
+  <div className="absolute inset-0 opacity-75 pointer-events-none">
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className="absolute bg-yellow-400 rounded-full animate-ping"
+              className="absolute bg-[#fefc09] rounded-full animate-ping"
               style={{
                 width: `${Math.random() * 8 + 4}px`,
                 height: `${Math.random() * 8 + 4}px`,
@@ -101,56 +105,56 @@ const Hero = () => {
             {/* Columna izquierda - Contenido */}
             <div className="text-white space-y-8">
               {/* Badge animado */}
-              <div className="inline-flex items-center space-x-2 bg-yellow-400/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-6 py-3 animate-bounce">
-                <Wrench className="h-5 w-5 text-yellow-400 animate-spin" style={{ animationDuration: '3s' }} />
-                <span className="text-yellow-400 font-bold text-sm">15+ Años de Experiencia</span>
+        <div className="inline-flex items-center space-x-2 bg-[#fefc09]/20 backdrop-blur-sm border border-[#fefc09]/30 rounded-full px-6 py-3 animate-bounce">
+          <Wrench className="h-5 w-5 text-[#fefc09] animate-spin" style={{ animationDuration: '3s' }} />
+          <span className="text-[#fefc09] font-bold text-sm">15+ Años de Experiencia</span>
               </div>
 
               {/* Título principal */}
               <div className="space-y-4">
                 <h1 className="text-5xl md:text-7xl font-black leading-tight">
-                  <span className="block text-white">Mecánica</span>
-                  <span className="block bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 bg-clip-text text-transparent">
+                  <span className="block text-[#fefc09] drop-shadow-[0_2px_8px_rgba(254,252,9,0.5)]">Mecánica</span>
+                  <span className="block bg-gradient-to-r from-[#fefc09] via-yellow-300 to-[#fefc09] bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(254,252,9,0.5)]">
                     Profesional
                   </span>
                 </h1>
-                <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"></div>
+                <div className="w-24 h-1 bg-gradient-to-r from-[#fefc09] via-yellow-300 to-[#fefc09] rounded-full"></div>
               </div>
 
               {/* Información dinámica de la imagen actual */}
-              <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
-                <h3 className="text-2xl font-bold text-yellow-400 mb-2">
+              <div className="bg-black/60 backdrop-blur-sm rounded-2xl p-6 border border-[#fefc09]/30 shadow-lg">
+                <h3 className="text-2xl font-bold text-[#fefc09] mb-2 drop-shadow-[0_2px_8px_rgba(254,252,9,0.5)]">
                   {images[current]?.title}
                 </h3>
-                <p className="text-slate-300 text-lg">
+                <p className="text-gray-200 text-lg">
                   {images[current]?.subtitle}
                 </p>
               </div>
 
               {/* Descripción */}
-              <p className="text-xl text-slate-200 leading-relaxed max-w-lg">
+              <p className="text-xl text-gray-100 leading-relaxed max-w-lg">
                 En Mecánica Lolo transformamos problemas en soluciones. 
-                <span className="text-yellow-400 font-semibold"> Confianza, calidad y garantía</span> en cada servicio.
+                <span className="text-[#fefc09] font-semibold"> Confianza, calidad y garantía</span> en cada servicio.
               </p>
 
               {/* Botones de acción */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <a
                   href="https://wa.me/5491234567890"
-                  className="group relative bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-3 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-green-500/25"
+                  className="group relative bg-[#fefc09] hover:bg-yellow-300 text-black px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-3 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-yellow-300/25 border border-black/10"
                 >
                   <MessageCircle className="h-6 w-6 group-hover:rotate-12 transition-transform" />
                   <span>Consultar por WhatsApp</span>
-                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
+                  <div className="absolute inset-0 bg-black/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
                 </a>
                 
                 <a
                   href="tel:+5491234567890"
-                  className="group relative bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-3 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-yellow-500/25"
+                  className="group relative bg-gradient-to-r from-[#fefc09] via-yellow-300 to-[#fefc09] hover:from-yellow-300 hover:to-[#fefc09] text-black px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-3 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-yellow-300/25 border border-black/10"
                 >
                   <Phone className="h-6 w-6 group-hover:rotate-12 transition-transform" />
                   <span>Llamar Ahora</span>
-                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
+                  <div className="absolute inset-0 bg-black/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
                 </a>
               </div>
             </div>
@@ -158,8 +162,8 @@ const Hero = () => {
             {/* Columna derecha - Controles del carrusel */}
             <div className="lg:flex lg:flex-col lg:items-end hidden">
               {/* Miniatura de la imagen actual */}
-              <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-slate-700/50">
-                <div className="w-64 h-40 rounded-xl overflow-hidden mb-4">
+              <div className="bg-black/60 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-[#fefc09]/30 shadow-lg">
+                <div className="w-64 h-40 rounded-xl overflow-hidden mb-4 border border-[#fefc09]/30">
                   <img
                     src={images[current]?.src}
                     alt={images[current]?.title}
@@ -167,8 +171,8 @@ const Hero = () => {
                   />
                 </div>
                 <div className="text-center">
-                  <p className="text-yellow-400 font-semibold">{images[current]?.title}</p>
-                  <p className="text-slate-400 text-sm">{images[current]?.subtitle}</p>
+                  <p className="text-[#fefc09] font-semibold drop-shadow-[0_2px_8px_rgba(254,252,9,0.5)]">{images[current]?.title}</p>
+                  <p className="text-gray-300 text-sm">{images[current]?.subtitle}</p>
                 </div>
               </div>
             </div>
@@ -193,8 +197,8 @@ const Hero = () => {
                   onClick={() => goToSlide(idx)}
                   className={`transition-all duration-300 rounded-full ${
                     current === idx
-                      ? 'w-12 h-3 bg-gradient-to-r from-yellow-400 to-orange-500'
-                      : 'w-3 h-3 bg-slate-500 hover:bg-slate-400'
+                      ? 'w-12 h-3 bg-gradient-to-r from-[#fefc09] via-yellow-300 to-[#fefc09]'
+                      : 'w-3 h-3 bg-black/40 hover:bg-[#fefc09]/60'
                   }`}
                 />
               ))}
@@ -213,8 +217,8 @@ const Hero = () => {
               onClick={() => setIsPlaying(!isPlaying)}
               className={`p-3 rounded-full transition-all duration-300 hover:scale-110 border ${
                 isPlaying 
-                  ? 'bg-yellow-400/20 border-yellow-400/50 text-yellow-400' 
-                  : 'bg-slate-800/60 border-slate-600/50 text-white'
+                  ? 'bg-[#fefc09]/20 border-[#fefc09]/50 text-[#fefc09]' 
+                  : 'bg-black/60 border-black/50 text-white'
               } backdrop-blur-sm`}
             >
               <Play className={`h-6 w-6 ${isPlaying ? '' : 'fill-current'}`} />
@@ -224,8 +228,8 @@ const Hero = () => {
       </div>
 
       {/* Efecto de líneas animadas en los bordes */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent animate-pulse"></div>
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#fefc09] to-transparent animate-pulse"></div>
+  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#fefc09] to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
     </section>
   );
 };

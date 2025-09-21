@@ -23,26 +23,38 @@ const Header = ({ scrollToSection }) => {
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-slate-900/95 backdrop-blur-md shadow-2xl py-2' 
-        : 'bg-slate-900/80 backdrop-blur-sm shadow-lg py-4'
+        ? 'bg-black/95 backdrop-blur-md shadow-2xl py-3' 
+        : 'bg-black/90 backdrop-blur-sm shadow-lg py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           
-          {/* Logo Section - Mejorado */}
-          <div className="flex items-center group cursor-pointer">
+          {/* Logo Section - Profesionalizado */}
+          <div className="flex items-center space-x-3 cursor-pointer group">
             <div className={`relative transition-all duration-300 ${
-              isScrolled ? 'h-10 w-10' : 'h-14 w-14'
+              isScrolled ? 'h-12 w-12' : 'h-16 w-16'
             }`}>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300 opacity-20"></div>
-              <div className="relative bg-slate-800 rounded-xl p-2 border border-slate-700 group-hover:border-yellow-400/50 transition-all duration-300">
-                <div className="bg-gradient-to-br from-yellow-400 to-orange-500 p-2 rounded-lg flex items-center justify-center">
-                  <Wrench className="h-6 w-6 text-slate-900 animate-pulse" />
-                </div>
-              </div>
-              
-              {/* Efecto de brillo */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent rounded-xl transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-700"></div>
+              <img
+                src="/logo/logo2.svg"
+                alt="Logo Mecánica Lolo"
+                className="h-full w-full object-contain transition-all duration-300 group-hover:scale-110"
+                style={{ 
+                  filter: 'drop-shadow(0 4px 12px #fefc0980) brightness(1.1)',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+              {/* Efecto de resplandor */}
+              <div className="absolute inset-0 bg-[#fefc09] opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity duration-300"></div>
+            </div>
+            
+            {/* Texto del logo */}
+            <div className={`transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-xl'}`}>
+              <h1 className="font-black text-[#fefc09] tracking-tight">
+                MECÁNICA
+              </h1>
+              <p className="text-white font-bold text-sm -mt-1 tracking-wider">
+                LOLO
+              </p>
             </div>
           </div>
 
@@ -52,23 +64,23 @@ const Header = ({ scrollToSection }) => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="relative px-4 py-2 rounded-lg font-medium text-slate-200 hover:text-yellow-400 transition-all duration-300 transform hover:scale-105 group"
+                className="relative px-6 py-3 rounded-lg font-semibold text-gray-200 hover:text-[#fefc09] transition-all duration-300 transform hover:scale-105 group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <span className="relative z-10">{item.label}</span>
                 
                 {/* Efecto hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/0 via-yellow-400/10 to-yellow-400/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#fefc09]/0 via-[#fefc09]/10 to-[#fefc09]/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Línea inferior animada */}
-                <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
+                <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#fefc09] to-yellow-300 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
               </button>
             ))}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden relative p-3 rounded-lg bg-slate-800/50 hover:bg-slate-700 transition-all duration-300 group"
+            className="md:hidden relative p-3 rounded-lg bg-black/60 hover:bg-black/80 border border-[#fefc09]/20 hover:border-[#fefc09]/40 transition-all duration-300 group text-[#fefc09]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <div className="relative w-6 h-6">
@@ -89,12 +101,12 @@ const Header = ({ scrollToSection }) => {
         <div className={`md:hidden overflow-hidden transition-all duration-300 ${
           isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="py-4 border-t border-slate-700/50 space-y-2">
+          <div className="py-4 border-t border-[#fefc09]/20 space-y-2">
             {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => { scrollToSection(item.id); setIsMenuOpen(false); }}
-                className="block w-full text-left py-3 px-4 rounded-lg text-slate-200 hover:text-yellow-400 hover:bg-slate-800/50 transition-all duration-300 transform hover:translate-x-2"
+                className="block w-full text-left py-3 px-4 rounded-lg text-gray-200 hover:text-[#fefc09] hover:bg-black/60 transition-all duration-300 transform hover:translate-x-2"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {item.label}
