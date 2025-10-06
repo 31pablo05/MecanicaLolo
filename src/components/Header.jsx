@@ -37,16 +37,14 @@ const Header = ({ scrollToSection }) => {
 
   return (
     <>
-      
-
       {/* Main Header */}
-      <header className={`fixed w-full top-0 lg:top-10 z-50 transition-all duration-500 ${
+      <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-black/98 backdrop-blur-xl shadow-2xl shadow-black/50' 
-          : 'bg-black/95 backdrop-blur-lg shadow-xl'
+          ? 'bg-black/98 backdrop-blur-xl shadow-2xl shadow-[#fefc09]/10' 
+          : 'bg-gradient-to-b from-black via-black/95 to-black/90 backdrop-blur-lg shadow-xl'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20 lg:h-24">
+          <div className="flex justify-between items-center h-18 lg:h-20">
             
             {/* Logo Section - Mejorado */}
             <div 
@@ -54,18 +52,18 @@ const Header = ({ scrollToSection }) => {
               onClick={() => scrollToSection('inicio')}
             >
               <div className={`relative transition-all duration-500 ${
-                isScrolled ? 'h-14 w-14 lg:h-16 lg:w-16' : 'h-16 w-16 lg:h-20 lg:w-20'
+                isScrolled ? 'h-12 w-12 lg:h-14 lg:w-14' : 'h-14 w-14 lg:h-16 lg:w-16'
               }`}>
                 {/* Círculo de fondo animado */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#fefc09]/20 to-yellow-500/20 rounded-full blur-sm opacity-20 group-hover:opacity-40 transition-all duration-500 animate-pulse"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#fefc09]/10 to-yellow-500/10 rounded-full blur-sm opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
                 
                 {/* Logo */}
                 <img
-                  src="/logo/Diseño sin título (4).svg"
+                  src="/logo/logo.svg"
                   alt="Logo Mecánica Lolo"
-                  className="relative h-full w-full object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
+                  className="relative h-full w-full object-contain transition-all duration-500 group-hover:scale-110"
                   style={{ 
-                    filter: 'drop-shadow(0 0 10px rgba(254, 252, 9, 0.5)) brightness(1.4) contrast(1.2)',
+                    filter: 'drop-shadow(0 0 8px rgba(254, 252, 9, 0.4)) brightness(1.3) contrast(1.15)',
                   }}
                   onError={(e) => {
                     // Fallback si no se carga el logo
@@ -76,53 +74,52 @@ const Header = ({ scrollToSection }) => {
                 
                 {/* Fallback icono */}
                 <div className="hidden h-full w-full items-center justify-center bg-gradient-to-br from-[#fefc09] to-yellow-500 rounded-full">
-                  <Wrench className="h-8 w-8 lg:h-10 lg:w-10 text-black transform rotate-45" />
+                  <Wrench className="h-6 w-6 lg:h-8 lg:w-8 text-black transform rotate-45" />
                 </div>
+              </div>
+              
+              {/* Texto del logo - visible en desktop */}
+              <div className="hidden sm:block">
+                <h1 className="text-xl lg:text-2xl font-black text-[#fefc09] leading-none">Mecánica Lolo</h1>
+                <p className="text-xs text-gray-400">Tu taller de confianza</p>
               </div>
               
               
             </div>
 
             {/* Navigation - Desktop */}
-            <nav className="hidden lg:flex items-center space-x-2">
-              {navItems.map((item, index) => (
+            <nav className="hidden lg:flex items-center space-x-1">
+              {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative px-6 py-3 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-105 group ${
+                  className={`relative px-5 py-2.5 rounded-lg font-bold text-sm uppercase tracking-wide transition-all duration-300 group ${
                     activeSection === item.id
-                      ? 'text-black bg-[#fefc09] shadow-lg shadow-[#fefc09]/50'
-                      : 'text-gray-200 hover:text-[#fefc09]'
+                      ? 'text-black bg-[#fefc09] shadow-md'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
                   }`}
-                  style={{ 
-                    animationDelay: `${index * 100}ms`,
-                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-                  }}
                 >
-                  <span className="relative z-10 flex items-center space-x-1">
-                    <span>{item.label}</span>
-                    {activeSection === item.id && (
-                      <ChevronDown className="h-4 w-4 animate-bounce" />
-                    )}
-                  </span>
+                  <span className="relative z-10">{item.label}</span>
+                  
+                  {/* Indicador activo */}
+                  {activeSection === item.id && (
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[#fefc09] rounded-full animate-pulse"></div>
+                  )}
                   
                   {/* Efecto hover para items no activos */}
                   {activeSection !== item.id && (
-                    <>
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#fefc09]/0 via-[#fefc09]/10 to-[#fefc09]/0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-2 left-1/2 w-0 h-1 bg-gradient-to-r from-transparent via-[#fefc09] to-transparent rounded-full group-hover:w-4/5 group-hover:left-[10%] transition-all duration-300"></div>
-                    </>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#fefc09] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
                   )}
                 </button>
               ))}
               
               {/* CTA Button */}
               <a
-                href="tel:+542804123456"
-                className="ml-4 px-6 py-3 bg-gradient-to-r from-[#fefc09] to-yellow-400 text-black font-black rounded-xl shadow-lg shadow-[#fefc09]/30 hover:shadow-2xl hover:shadow-[#fefc09]/50 transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 group"
+                href="tel:+542804594131"
+                className="ml-3 px-5 py-2.5 bg-gradient-to-r from-[#fefc09] to-yellow-400 text-black font-black rounded-lg shadow-md hover:shadow-lg hover:shadow-[#fefc09]/30 transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 group"
               >
-                <Phone className="h-5 w-5 group-hover:rotate-12 transition-transform" />
-                <span>LLAMAR</span>
+                <Phone className="h-4 w-4 group-hover:rotate-12 transition-transform" />
+                <span className="text-sm">LLAMAR</span>
               </a>
             </nav>
 
@@ -220,7 +217,7 @@ const Header = ({ scrollToSection }) => {
       </header>
 
       {/* Espaciador */}
-      <div className="h-20 lg:h-36"></div>
+      <div className="h-18 lg:h-20"></div>
 
       <style jsx>{`
         @keyframes slideDown {

@@ -173,9 +173,9 @@ const Hero = () => {
 
             {/* Columna derecha - Info de imagen actual (4 columnas) */}
             <div className={`lg:col-span-4 transition-all duration-700 delay-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-white/20 shadow-2xl">
+              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 md:p-6 lg:p-8 border border-white/20 shadow-2xl">
                 {/* Miniatura */}
-                <div className="relative w-full h-40 sm:h-48 md:h-56 rounded-xl overflow-hidden mb-4 border-2 border-yellow-400/30 shadow-lg group">
+                <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96 rounded-xl overflow-hidden mb-4 md:mb-6 border-2 border-yellow-400/30 shadow-lg group">
                   <img
                     src={images[current]?.src}
                     alt={images[current]?.title}
@@ -188,13 +188,8 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Contador de imágenes */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-white">
-                    <span className="text-2xl md:text-3xl font-bold text-yellow-400">{String(current + 1).padStart(2, '0')}</span>
-                    <span className="text-gray-400 mx-2">/</span>
-                    <span className="text-gray-400">{String(images.length).padStart(2, '0')}</span>
-                  </div>
+                {/* Control de reproducción - Solo Desktop */}
+                <div className="hidden lg:flex justify-end mb-4">
                   <button
                     onClick={() => setIsPlaying(!isPlaying)}
                     className={`p-2 md:p-3 rounded-full transition-all duration-300 hover:scale-110 ${
@@ -207,8 +202,8 @@ const Hero = () => {
                   </button>
                 </div>
 
-                {/* Indicadores de progreso */}
-                <div className="flex justify-center items-center space-x-2 mt-4">
+                {/* Indicadores de progreso - Solo Desktop */}
+                <div className="hidden lg:flex justify-center items-center space-x-2 mt-4">
                   {images.map((_, idx) => (
                     <button
                       key={idx}

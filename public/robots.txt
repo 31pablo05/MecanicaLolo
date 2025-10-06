@@ -1,0 +1,24 @@
+# Robots.txt para Mecánica Lolo
+# https://mecanicalolo.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mecanicalolo.vercel.app/sitemap.xml
+
+# Archivos específicos
+Allow: /logo/
+Allow: /imagenes/
+Allow: /video/
+
+# Bloquear archivos innecesarios
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.config.js$
+
+# Información del negocio
+# Mecánica Lolo
+# Roque Gonzalez 76, U9100 Trelew, Chubut, Argentina
+# Tel: (280) 459-4131 / (280) 471-2111

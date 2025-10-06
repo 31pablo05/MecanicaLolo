@@ -65,18 +65,9 @@ const About = () => {
         
         {/* Header Section con animación */}
         <div className={`text-center mb-16 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="inline-block mb-4">
-            <div className="flex items-center gap-2 bg-[#fefc09] text-black px-6 py-2 rounded-full font-bold text-sm animate-bounce">
-              <Star className="h-4 w-4" />
-              <span>Taller de Confianza desde 2010</span>
-            </div>
-          </div>
           <h2 className="text-5xl md:text-7xl font-black text-white mb-6">
             Sobre{' '}
-            <span className="relative inline-block">
-              <span className="text-[#fefc09] animate-pulse">Nosotros</span>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-[#fefc09] transform scale-x-0 animate-[scaleIn_1s_ease-out_0.5s_forwards]"></div>
-            </span>
+            <span className="text-[#fefc09]">Nosotros</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Transformando vehículos y superando expectativas en Trelew, Chubut
@@ -90,11 +81,10 @@ const About = () => {
           <div className={`space-y-8 transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
             {/* Texto principal con efecto de highlight */}
             <div className="space-y-6">
-              <p className="text-lg text-gray-300 leading-relaxed group">
+              <p className="text-lg text-gray-300 leading-relaxed">
                 En{' '}
-                <span className="relative inline-block font-bold text-[#fefc09] px-3 py-1 bg-black rounded-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[#fefc09]/50">
+                <span className="font-bold text-[#fefc09]">
                   Mecánica Lolo
-                  <div className="absolute inset-0 border-2 border-[#fefc09] rounded-lg animate-ping opacity-75"></div>
                 </span>{' '}
                 nos enorgullecemos de ser el taller de confianza para miles de familias en Trelew y toda la región de Chubut.
               </p>
@@ -129,23 +119,6 @@ const About = () => {
 
             {/* Features con hover effects */}
             <div className="space-y-4">
-              <div className="group bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl p-5 shadow-lg border border-[#fefc09]/20 transition-all duration-300 hover:border-[#fefc09] hover:shadow-xl hover:shadow-[#fefc09]/20 hover:translate-x-2">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-[#fefc09] p-3 rounded-lg transform transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
-                    <Shield className="h-6 w-6 text-black" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white mb-2 flex items-center gap-2">
-                      Garantía Total
-                      <Zap className="h-4 w-4 text-[#fefc09] opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </h4>
-                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                      Todos nuestros trabajos incluyen garantía por escrito y seguimiento post-servicio
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
               <div className="group bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl p-5 shadow-lg border border-[#fefc09]/20 transition-all duration-300 hover:border-[#fefc09] hover:shadow-xl hover:shadow-[#fefc09]/20 hover:translate-x-2">
                 <div className="flex items-start space-x-4">
                   <div className="bg-[#fefc09] p-3 rounded-lg transform transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
@@ -206,7 +179,7 @@ const About = () => {
 
             {/* Thumbnail Navigation mejorado */}
             <div className="grid grid-cols-5 gap-2">
-              {tallerImages.slice(0, 5).map((image, index) => (
+              {tallerImages.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
@@ -232,14 +205,7 @@ const About = () => {
               ))}
             </div>
 
-            {/* Floating Quality Badge mejorado */}
-            <div className="absolute -bottom-8 -left-8 bg-gradient-to-br from-black to-gray-900 p-6 rounded-2xl shadow-2xl border-4 border-[#fefc09] transform hover:scale-110 transition-transform duration-300 animate-float">
-              <div className="text-center">
-                <Star className="h-10 w-10 text-[#fefc09] mx-auto mb-2 animate-spin-slow" />
-                <div className="font-bold text-[#fefc09] text-lg">Calidad</div>
-                <div className="font-bold text-white">Garantizada</div>
-              </div>
-            </div>
+
           </div>
         </div>
 

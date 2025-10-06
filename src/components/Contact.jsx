@@ -82,7 +82,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <div className="font-bold text-slate-900 mb-1">Dirección</div>
-                    <div className="text-slate-600">Trelew, Chubut</div>
+                    <div className="text-slate-600">Roque Gonzalez 76, U9100 Trelew, Chubut</div>
+                    <div className="text-xs text-slate-500 mt-1">(Detrás de 13 de Julio, Cabrera 884)</div>
                   </div>
                 </div>
 
@@ -136,12 +137,12 @@ const Contact = () => {
           {/* Mapa */}
           <div className="h-[500px] lg:h-full rounded-2xl overflow-hidden shadow-xl">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168571557213!2d-58.38156258477033!3d-34.60373098045814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacfdf4c9db1%3A0x3ed2b5e4a9bdb2e0!2sObelisco!5e0!3m2!1ses!2sar!4v1649876543210!5m2!1ses!2sar"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2818.3!2d-65.3088!3d-43.2487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDE0JzU1LjMiUyA2NcKwMTgnMzEuNyJX!5e0!3m2!1ses!2sar!4v1633027890123!5m2!1ses!2sar&q=Roque+Gonzalez+76,+U9100+Trelew,+Chubut"
               className="w-full h-full"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación de Mecánica Lolo"
+              title="Ubicación de Mecánica Lolo - Roque Gonzalez 76, Trelew"
             ></iframe>
           </div>
         </div>

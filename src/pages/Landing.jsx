@@ -12,7 +12,6 @@ import { Wrench, Zap, Settings } from 'lucide-react';
 const Landing = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   // Efecto de carga inicial
   useEffect(() => {
@@ -20,18 +19,6 @@ const Landing = () => {
       setIsLoading(false);
     }, 1500);
     return () => clearTimeout(timer);
-  }, []);
-
-  // Seguimiento del mouse para efectos paralax
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 20,
-        y: (e.clientY / window.innerHeight) * 20
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   useEffect(() => {
@@ -89,33 +76,6 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Efectos de fondo animados - Paralax sutil */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Gradientes animados */}
-        <div 
-          className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#fefc09] rounded-full filter blur-[150px] opacity-10 animate-float"
-          style={{
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`
-          }}
-        ></div>
-        <div 
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#fefc09] rounded-full filter blur-[150px] opacity-10 animate-float-delayed"
-          style={{
-            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`
-          }}
-        ></div>
-        
-        {/* Grid de fondo */}
-        <div 
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `linear-gradient(#fefc09 1px, transparent 1px), linear-gradient(90deg, #fefc09 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-            transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`
-          }}
-        ></div>
-      </div>
-
       {/* Contenido principal */}
       <div className="relative z-10">
         <Header scrollToSection={scrollToSection} />
@@ -207,16 +167,6 @@ const Landing = () => {
         ></div>
       </div>
 
-      {/* Cursor personalizado para desktop */}
-      <div 
-        className="hidden lg:block fixed w-6 h-6 border-2 border-[#fefc09] rounded-full pointer-events-none z-[70] transition-transform duration-100"
-        style={{
-          left: `${mousePosition.x * 5}px`,
-          top: `${mousePosition.y * 5}px`,
-          transform: 'translate(-50%, -50%)'
-        }}
-      ></div>
-
       <style jsx>{`
         @keyframes fadeIn {
           from {
@@ -235,24 +185,6 @@ const Landing = () => {
           to {
             opacity: 1;
             transform: translateY(0);
-          }
-        }
-
-        @keyframes float {
-          0%, 100% {
-            transform: translate(0, 0);
-          }
-          50% {
-            transform: translate(30px, -30px);
-          }
-        }
-
-        @keyframes float-delayed {
-          0%, 100% {
-            transform: translate(0, 0);
-          }
-          50% {
-            transform: translate(-30px, 30px);
           }
         }
 
@@ -280,14 +212,6 @@ const Landing = () => {
 
         .animate-fadeInUp {
           animation: fadeInUp 1s ease-out;
-        }
-
-        .animate-float {
-          animation: float 20s ease-in-out infinite;
-        }
-
-        .animate-float-delayed {
-          animation: float-delayed 25s ease-in-out infinite;
         }
 
         .animate-loading {

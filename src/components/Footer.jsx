@@ -178,8 +178,8 @@ const Footer = () => {
                 <div className="flex-1">
                   <div className="text-xs text-slate-400 mb-1">Dirección</div>
                   <div className="text-slate-300 text-sm leading-relaxed">
-                    Av. Principal 123<br />
-                    Ciudad, Provincia
+                    Roque Gonzalez 76<br />
+                    U9100 Trelew, Chubut
                   </div>
                 </div>
               </div>
